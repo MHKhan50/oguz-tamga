@@ -16,6 +16,14 @@
 | char_raw | both_cyrillic | 0.831 | 0.873 |
 | char_raw | both_latin | 0.703 | 0.754 |
 | char_raw | cross_script | 0.173 | 0.207 |
+| e5_small | all | 0.968 | 0.979 |
+| e5_small | both_cyrillic | 0.994 | 0.995 |
+| e5_small | both_latin | 0.956 | 0.972 |
+| e5_small | cross_script | 0.969 | 0.980 |
+| labse | all | 0.998 | 0.998 |
+| labse | both_cyrillic | 0.998 | 0.998 |
+| labse | both_latin | 0.998 | 0.998 |
+| labse | cross_script | 0.998 | 0.998 |
 | word_raw | all | 0.273 | 0.303 |
 | word_raw | both_cyrillic | 0.519 | 0.565 |
 | word_raw | both_latin | 0.410 | 0.460 |
@@ -31,6 +39,10 @@
 | char_latin | top1 | 0.669 ± 0.006 | 0.480 | 0.029 | 0.143 |
 | char_raw | margin | 0.608 ± 0.005 | 0.278 | 0.011 | 0.062 |
 | char_raw | top1 | 0.600 ± 0.004 | 0.276 | 0.017 | 0.076 |
+| e5_small | margin | 0.901 ± 0.003 | 0.871 | 0.002 | 0.069 |
+| e5_small | top1 | 0.913 ± 0.002 | 0.889 | 0.012 | 0.063 |
+| labse | margin | 0.980 ± 0.001 | 0.974 | 0.000 | 0.014 |
+| labse | top1 | 0.979 ± 0.001 | 0.969 | 0.000 | 0.011 |
 | word_raw | margin | 0.561 ± 0.004 | 0.188 | 0.016 | 0.065 |
 | word_raw | top1 | 0.564 ± 0.004 | 0.176 | 0.018 | 0.048 |
 

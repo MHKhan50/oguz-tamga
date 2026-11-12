@@ -38,3 +38,6 @@ Seeds 11, 23, 37, 41 and 53 control the masks (dev uses the seed, devtest uses s
 - H1: transliteration and folding raise cross-script Recall@1 of the character retriever. Refuted if `char_folded` is not above `char_raw` on cross-script pairs.
 - H2: the margin is a better abstention signal than the top score. Refuted if `margin` does not give a higher right-move rate than `top1` for most methods.
 - H3: sentence embeddings beat every lexical method on cross-script pairs. Refuted if a lexical method matches them.
+
+## Outcome of v0.1.0
+H1 supported (cross-script Recall@1 0.173 to 0.674). H2 supported for character methods only: tied for word TF-IDF and LaBSE, reversed for e5-small. H3 supported (cross-script Recall@1 0.969 for e5-small and 0.998 for LaBSE against 0.674).

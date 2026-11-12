@@ -53,7 +53,13 @@ class DenseEncoder:
         return self._cache[key]
 
     def scores(self, queries, candidates):
-        return self.encode(queries, self.q_prefix) @ self.encode(candidates, self.c_prefix).T
+        # float64 keeps the dot products exact and avoids spurious BLAS warnings on some Macs
+        q = np.asarray(self.encode(queries, self.q_prefix), dtype=np.float64)
+        c = np.asarray(self.encode(candidates, self.c_prefix), dtype=np.float64)
+        out = q @ c.T
+        if not np.all(np.isfinite(out)):
+            raise FloatingPointError("Non-finite similarity scores from the encoder")
+        return out
 
 
 def score_matrix(queries, q_lang, candidates, c_lang, method, encoders=None):

@@ -5,7 +5,9 @@
     "word_raw",
     "char_raw",
     "char_latin",
-    "char_folded"
+    "char_folded",
+    "e5_small",
+    "labse"
   ],
   "seeds": [
     11,

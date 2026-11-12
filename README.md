@@ -25,9 +25,9 @@ Methods:
 
 Full protocol and hypotheses: `docs/EXPERIMENTAL_PROTOCOL.md`.
 
-## Results (v0.1.0, lexical methods)
+## Results (v0.1.0)
 
-FLORES+ devtest, 1,012 sentences per language, 20 directed pairs, 5 seeds for the open-set test. Sentence-embedding results are not in yet.
+FLORES+ devtest, 1,012 sentences per language, 20 directed pairs; open-set test over 5 seeds.
 
 **Closed set, Recall@1** (true sentence ranked first among about 1,000)
 
@@ -37,25 +37,30 @@ FLORES+ devtest, 1,012 sentences per language, 20 directed pairs, 5 seeds for th
 | char_raw | 0.398 | 0.703 | 0.831 | 0.173 |
 | char_latin | 0.686 | 0.722 | 0.855 | 0.640 |
 | char_folded | 0.725 | 0.768 | 0.899 | 0.674 |
-
-- Mapping Kazakh and Kyrgyz Cyrillic to Latin and removing diacritics raised cross-script Recall@1 from 0.173 to 0.674 for the character retriever.
-- It also helped pairs that share a script. For Latin pairs, the Uzbek spelling mapping took Recall@1 from 0.703 to 0.722 and removing diacritics to 0.768; for the Kazakh–Kyrgyz pairs it went from 0.831 to 0.899.
+| e5_small | 0.968 | 0.956 | 0.994 | 0.969 |
+| labse | 0.998 | 0.998 | 0.998 | 0.998 |
 
 **Open set** (true sentence removed for half the queries; threshold set on dev)
 
 | Method | Confidence | Right move | True evidence | Wrong evidence | Answered with no evidence |
 |---|---|---|---|---|---|
-| char_folded | margin | 0.715 ± 0.006 | 0.537 | 0.012 | 0.107 |
-| char_folded | top1 | 0.696 ± 0.007 | 0.525 | 0.024 | 0.132 |
-| char_latin | margin | 0.689 ± 0.006 | 0.482 | 0.013 | 0.105 |
-| char_raw | margin | 0.608 ± 0.005 | 0.278 | 0.011 | 0.062 |
 | word_raw | margin | 0.561 ± 0.004 | 0.188 | 0.016 | 0.065 |
+| char_raw | margin | 0.608 ± 0.005 | 0.278 | 0.011 | 0.062 |
+| char_folded | margin | 0.715 ± 0.006 | 0.537 | 0.012 | 0.107 |
+| e5_small | top1 | 0.913 ± 0.002 | 0.889 | 0.012 | 0.063 |
+| labse | margin | 0.980 ± 0.001 | 0.974 | 0.000 | 0.014 |
 
-- With the margin as its confidence, the best setup made the right move 71.5% of the time and returned a wrong sentence for 1.2% of answerable queries.
-- It is cautious: when the evidence existed it still abstained on about 45% of queries, and when it did not exist it answered 10.7% of the time.
-- The margin beat the top score for all three character methods; for word TF-IDF the two were level (0.561 against 0.564).
+Each method is shown with its better confidence signal; every row is in `results/tables.md`.
 
-All rows, including `top1` for every method, are in `results/tables.md` and `results/summary.csv`.
+What the numbers say:
+
+- **Sentence embeddings win by a wide margin.** LaBSE found the right sentence 99.8% of the time in every script setting, e5-small 96.8%. The best lexical method reached 72.5%.
+- **For lexical retrieval, transliteration matters a lot.** Mapping Kazakh and Kyrgyz Cyrillic to Latin and removing diacritics took cross-script Recall@1 of the character retriever from 0.173 to 0.674. For Latin pairs the Uzbek spelling mapping took it from 0.703 to 0.722, and removing diacritics to 0.768.
+- **Abstention works when retrieval is strong.** With LaBSE the agent made the right move 98.0% of the time, returned a wrong sentence for 0.000 (to three decimals) of queries whose true sentence existed, and answered 1.4% of no-evidence queries.
+- **Which confidence signal is better depends on the retriever.** The top-two margin beat the raw top score for all three character methods, tied for word TF-IDF and LaBSE, and was worse for e5-small (0.901 against 0.913).
+- **Turkish as the target was hardest for e5-small:** Recall@1 into Turkish ranged from 0.872 to 0.942, against 0.950 or more for every other target. LaBSE showed no such gap. The cause is not tested here.
+
+**What this does and does not show.** FLORES sentences are translations of the same English text, which makes them easy for embedding models trained on translation pairs; LaBSE is close to the ceiling here. These results say little about finding evidence in documents written separately in each language. That harder setting is the next version.
 
 ## Run it
 
