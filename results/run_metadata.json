@@ -1,0 +1,27 @@
+{
+  "project": "TurkicBridge AI",
+  "version": "0.1.0",
+  "methods": [
+    "word_raw",
+    "char_raw",
+    "char_latin",
+    "char_folded"
+  ],
+  "seeds": [
+    11,
+    23,
+    37,
+    41,
+    53
+  ],
+  "pairs": 20,
+  "dev_sentences": 997,
+  "devtest_sentences": 1012,
+  "data_source": {
+    "source": "FLORES+",
+    "repo": "openlanguagedata/flores_plus",
+    "revision": "1147e2dc59f37fbb5c22fd8478770de02cd399f9"
+  },
+  "python": "3.9.6",
+  "platform": "macOS-27.2-arm64-arm-64bit"
+}
