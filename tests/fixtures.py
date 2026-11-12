@@ -24,7 +24,7 @@ def corpus(n=12):
 
 
 def fake_archive(path):
-    from turkicbridge.languages import flores_code
+    from oguztamga.languages import flores_code
     data = corpus()
     with tarfile.open(str(path), "w:gz") as tar:
         for split in ("dev", "devtest"):

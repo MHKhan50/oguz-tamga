@@ -6,13 +6,13 @@ from pathlib import Path
 import numpy as np
 
 from fixtures import corpus, fake_archive
-from turkicbridge.agent import TurkicBridgeAgent
-from turkicbridge.data import download_flores200, find_data_file, load_split, read_records, read_source, records_to_lines
-from turkicbridge.evaluate import closed_set, missing_mask, open_set_predictions, open_set_report, pick_threshold
-from turkicbridge.experiment import run, script_pair
-from turkicbridge.languages import directed_pairs, flores_code
-from turkicbridge.normalise import prepare
-from turkicbridge.retrievers import score_matrix
+from oguztamga.agent import OguzTamgaAgent
+from oguztamga.data import download_flores200, find_data_file, load_split, read_records, read_source, records_to_lines
+from oguztamga.evaluate import closed_set, missing_mask, open_set_predictions, open_set_report, pick_threshold
+from oguztamga.experiment import run, script_pair
+from oguztamga.languages import directed_pairs, flores_code
+from oguztamga.normalise import prepare
+from oguztamga.retrievers import score_matrix
 
 
 class Normalise(unittest.TestCase):
@@ -100,7 +100,7 @@ class Retrieval(unittest.TestCase):
 class Agent(unittest.TestCase):
     def setUp(self):
         c = corpus()
-        self.agent = TurkicBridgeAgent([(t, "fixture#%d" % i) for i, t in enumerate(c["kaz"])], "kaz",
+        self.agent = OguzTamgaAgent([(t, "fixture#%d" % i) for i, t in enumerate(c["kaz"])], "kaz",
                                        method="char_folded", confidence="margin", threshold=0.05)
 
     def test_answers_with_source(self):

@@ -4,7 +4,7 @@
 
 **Access conditions:** FLORES+ asks users not to re-host it where web crawlers can pick it up. This repository never stores the text: `data/` is git-ignored and results hold only metrics and sentence indices.
 
-**Licence:** CC BY-SA 4.0. The raw text is not redistributed; `python -m turkicbridge.cli download` fetches it. Result files contain only metrics and sentence indices.
+**Licence:** CC BY-SA 4.0. The raw text is not redistributed; `python -m oguztamga.cli download` fetches it. Result files contain only metrics and sentence indices.
 
 **Content:** professionally translated sentences from English Wikinews, Wikijunior and Wikivoyage articles. They are general-domain, not health, disaster or public-service text.
 

@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite it."
-title: "TurkicBridge AI: cross-lingual evidence retrieval with abstention for Turkic languages"
+title: "OğuzTamga: evidence-stamped cross-lingual retrieval for Turkic languages"
 version: 0.1.0
 date-released: 2026-11-12
 authors:
@@ -8,4 +8,4 @@ authors:
     given-names: Muzammal
     orcid: "https://orcid.org/0009-0001-2570-5686"
 license: MIT
-repository-code: "https://github.com/MHKhan50/turkicbridge-ai"
+repository-code: "https://github.com/MHKhan50/oguz-tamga"

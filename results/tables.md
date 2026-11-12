@@ -1,4 +1,4 @@
-# TurkicBridge results (FLORES devtest)
+# OğuzTamga results (FLORES devtest)
 
 ## Closed set: true sentence always in the pool
 

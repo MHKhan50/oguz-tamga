@@ -138,7 +138,7 @@ def load_split(split, data_dir="data", langs=None):
     for lang in langs:
         path = Path(data_dir) / split / ("%s.%s" % (flores_code(lang), split))
         if not path.exists():
-            raise FileNotFoundError("%s not found; run `python -m turkicbridge.cli download` first" % path)
+            raise FileNotFoundError("%s not found; run `python -m oguztamga.cli download` first" % path)
         out[lang] = path.read_text(encoding="utf-8").rstrip("\n").split("\n")
     sizes = {len(v) for v in out.values()}
     if len(sizes) != 1:

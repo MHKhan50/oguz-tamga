@@ -5,7 +5,7 @@ from .languages import LANGUAGES
 from .retrievers import score_matrix
 
 
-class TurkicBridgeAgent:
+class OguzTamgaAgent:
     """Answers a question in one language with a sentence found in another, or abstains.
 
     The corpus is a list of (sentence, source_id) in the target language. The agent

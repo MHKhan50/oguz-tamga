@@ -6,7 +6,7 @@ from .retrievers import LEXICAL, METHODS
 
 
 def main(argv=None):
-    parser = argparse.ArgumentParser(prog="turkicbridge", description="TurkicBridge AI experiments")
+    parser = argparse.ArgumentParser(prog="oguztamga", description="OğuzTamga experiments")
     sub = parser.add_subparsers(dest="command", required=True)
     d = sub.add_parser("download", help="fetch FLORES sentences for the five languages")
     d.add_argument("--data-dir", default="data")

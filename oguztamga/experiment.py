@@ -54,7 +54,7 @@ def run(dev, devtest, methods, seeds, out_dir="results", data_source=None, log=p
         writer.writeheader()
         writer.writerows(summary)
     (out / "tables.md").write_text(tables(summary), encoding="utf-8")
-    meta = {"project": "TurkicBridge AI", "version": __version__, "methods": list(methods), "seeds": list(seeds),
+    meta = {"project": "OğuzTamga", "version": __version__, "methods": list(methods), "seeds": list(seeds),
             "pairs": len(directed_pairs()), "dev_sentences": len(next(iter(dev.values()))),
             "devtest_sentences": len(next(iter(devtest.values()))), "data_source": data_source,
             "python": sys.version.split()[0], "platform": platform.platform()}
@@ -87,7 +87,7 @@ def summarise(rows):
 
 
 def tables(summary):
-    lines = ["# TurkicBridge results (FLORES devtest)", "",
+    lines = ["# OğuzTamga results (FLORES devtest)", "",
              "## Closed set: true sentence always in the pool", "",
              "| Method | Pairs | Recall@1 | MRR |", "|---|---|---|---|"]
     for r in summary:
