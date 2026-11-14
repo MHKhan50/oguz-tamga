@@ -1,5 +1,7 @@
 # OğuzTamga
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24167553.svg)](https://doi.org/10.5281/zenodo.24167553)
+
 *Evidence-stamped cross-lingual retrieval for Turkic languages*
 
 Someone asks a question in Kazakh. The best evidence exists, but only in Turkish or Uzbek, and in a different script. Can a retriever find it, and can it say "I found nothing" when there is nothing to find?
